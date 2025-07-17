@@ -1,0 +1,30 @@
+.headline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:grey;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 50px;
+}
+.small{font-size: medium;}
+
+table{
+      border-collapse: collapse;
+      background-color: rgb(196, 192, 192);
+      
+    
+   
+  
+}
+.theader{
+      background-color:;background: #ffffff;
+background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(204, 204, 204, 1) 100%);
+width: 300px;
+
+  }
+
+body{
+    background-color:lavender ;
+    color: rgb(71, 71, 71);
+    font: size 50px;
+}
