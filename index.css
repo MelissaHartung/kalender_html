@@ -5,7 +5,7 @@
     color:rgb(86, 86, 86);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 30px;
-    
+    background-color: #EEAECA;
 }
 .small{font-size:small;}
 
@@ -59,7 +59,14 @@
  }
 
 .back{
-  background-color: #EEAECA;
+background-color: #EEAECA;
 background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 64%);
 }
+
+.heading {
+  display: flex;
+  justify-content:left;
+  align-items: baseline;
+}
+
 
