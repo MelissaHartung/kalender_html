@@ -2,29 +2,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color:grey;
+    color:rgb(86, 86, 86);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin: 50px;
+    margin: 30px;
 }
-.small{font-size: medium;}
+.small{font-size:small;}
 
-table{
-      border-collapse: collapse;
-      background-color: rgb(196, 192, 192);
-      
-    
-   
-  
+.tablehead{
+    background-color: rgba(255,255,255,0.5);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(57, 57, 57);
+    font-size: 20px;
+    border-spacing: 40px;
+    margin-top: 40px;
+    border-collapse: collapse;
 }
-.theader{
-      background-color:;background: #ffffff;
-background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(204, 204, 204, 1) 100%);
-width: 300px;
 
-  }
-
-body{
-    background-color:lavender ;
-    color: rgb(71, 71, 71);
-    font: size 50px;
+.tgb{
+  border-collapse: collapse;
+  background-color:rgba(255,255,255,0.5);
+  color:rgb(71, 71, 71);
+  font-size:20px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
+  border-spacing: 40px;
+  margin-top: 40px;
 }
+
+.middle{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.back{
+  background-color: #EEAECA;
+background: radial-gradient(circle,rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 64%);
+}
+
