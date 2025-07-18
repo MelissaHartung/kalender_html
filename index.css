@@ -5,33 +5,58 @@
     color:rgb(86, 86, 86);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 30px;
+    
 }
 .small{font-size:small;}
 
 .tablehead{
-    background-color: rgba(255,255,255,0.5);
+    background-color: rgba(255, 255, 255, 0.238);
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: rgb(57, 57, 57);
+    color: rgba(57, 57, 57, 0.766);
     font-size: 20px;
     border-spacing: 40px;
     margin-top: 40px;
-    border-collapse: collapse;
+   border-collapse: separate;
 }
+.tablehead th {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 12px 18px;
+  border-radius: 15px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  text-align: center;}
 
 .tgb{
-  border-collapse: collapse;
+ border-collapse: separate;
   background-color:rgba(255,255,255,0.5);
-  color:rgb(71, 71, 71);
+  color:rgba(71, 71, 71, 0.637);
   font-size:20px;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif ;
   border-spacing: 40px;
   margin-top: 40px;
+  text-align: center;
+}
+
+.tgb td, .tgb th {
+  border-radius: 15px;
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 12px 18px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+.tgb td:last-child {
+  background-color: rgba(220, 146, 211, 0.295);
+}
+
+
+.tgb td:hover {
+  background-color: rgba(188, 105, 158, 0.358);
+  transition: background-color 0.2s ease;
+  cursor: pointer;
 }
 
 .middle{
   margin-left: auto;
   margin-right: auto;
-}
+ }
 
 .back{
   background-color: #EEAECA;
