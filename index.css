@@ -1,11 +1,17 @@
 .headline {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: inline-block;
     color:rgb(86, 86, 86);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 30px;
-    background-color: #EEAECA;
+    background-color: #f3a5c7;
+    padding: 10px 20px;             
+   border-radius: 12px;            
+        
+}
+
+.container {
+  display: flex;
+  justify-content: center;
 }
 .small{font-size:small;}
 
@@ -42,11 +48,9 @@
   padding: 12px 18px;
   background-color: rgba(255, 255, 255, 0.7);
 }
-.tgb td:last-child {
-  background-color: rgba(220, 146, 211, 0.295);
+td:nth-child(7n + 7) {
+  background-color:#EEAECA;
 }
-
-
 .tgb td:hover {
   background-color: rgba(188, 105, 158, 0.358);
   transition: background-color 0.2s ease;
