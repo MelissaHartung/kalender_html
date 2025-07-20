@@ -1,17 +1,17 @@
 .headline {
-    display: inline-block;
     color:rgb(86, 86, 86);
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 30px;
     background-color: #f3a5c7;
     padding: 10px 20px;             
-   border-radius: 12px;            
-        
+   border-radius: 12px;                
 }
 
 .container {
   display: flex;
   justify-content: center;
+  align-items:center
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 .small{font-size:small;}
 
