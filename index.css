@@ -1,27 +1,42 @@
 .headline {
   color: rgb(86, 86, 86);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size:xx-large;
+  display: inline-block;
   margin: 30px;
-  background-color: #f3a5c7;
+  background-color: #eeaecabd;
   padding: 10px 20px;
   border-radius: 12px;
+  text-align: center;  
+}
 
+body {
+  font-family: "Sour Gummy", sans-serif;
+}
+
+.sour-gummy-uniquifier  {
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .container {
-      display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+    gap: 30px;
 }
 
 .small {
-  font-size: small;
+  font-size: medium;
+   color: rgb(68, 66, 66);
 }
 
 .tablehead {
   background-color: rgba(255, 255, 255, 0.238);
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
   color: rgba(57, 57, 57, 0.766);
   font-size: 20px;
   border-spacing: 40px;
@@ -42,7 +57,7 @@
   background-color: rgba(255, 255, 255, 0.5);
   color: rgba(71, 71, 71, 0.637);
   font-size: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+ 
   border-spacing: 40px;
   margin-top: 40px;
   text-align: center;
@@ -67,8 +82,7 @@ td:nth-child(7n + 7) {
 }
 
 .middle {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0;
 }
 
 .back {
@@ -76,20 +90,9 @@ td:nth-child(7n + 7) {
   background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 64%);
 }
 
-
-
-.notiz {
- 
-  max-width: 180px;
-    color: #444;
-}
-
-.flex-wrapper {
+.wrapper {
   display: flex;
-  justify-content: center;
+  gap: 5px;              
   align-items: flex-start; 
-  gap: 100px; 
-  max-width: 700px;
-  margin: 30px auto;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
+  justify-content: center;
+  }
