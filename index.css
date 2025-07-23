@@ -1,9 +1,12 @@
 .headline {
-  color: rgb(86, 86, 86);
-  font-size:xx-large;
+ 
+   color: #fdfdfe;
+  text-shadow: 0px 0px 5px #976383, 0px 0px 10px #a86594, 0px 0px 10px #b393d3,
+    0px 0px 20px #af1d90;
+  font-size:50px;
   display: inline-block;
   margin: 30px;
-  background-color: #eeaecabd;
+  /* background-color: #eeaecac9; */
   padding: 10px 20px;
   border-radius: 12px;
   text-align: center;  
@@ -12,7 +15,10 @@
 
 body {
   font-family: "Sour Gummy", sans-serif;
+  /* background: radial-gradient(circle, #eeaecabd 0%, #94bbe9 100%);  */
+  background-color: rgb(0, 0, 0);
 }
+
 
 .sour-gummy-uniquifier  {
   font-family: "Sour Gummy", sans-serif;
@@ -27,42 +33,42 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
 }
+    
+
 
 .small {
   font-size: medium;
    color: rgb(68, 66, 66);
-   line-height: 2em ;
+   line-height: em ;
+  
+   
 }
 
 .tablehead {
-  background-color: rgba(255, 255, 255, 0.238);
-
+  background-color: rgb(107, 11, 99);
   color: rgba(57, 57, 57, 0.766);
-  font-size: 20px;
-  border-spacing: 40px;
-  margin-top: 40px;
+  font-size: 30px;
   border-collapse: separate;
 }
 
 .tablehead th {
   background-color: rgba(255, 255, 255, 0.7);
-  padding: 12px 18px;
+  padding: 20px 20px;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0);
   text-align: center;
+  box-shadow: 0px 0px 7px 2px white;
 }
 
 .tgb {
-  border-collapse: separate;
-  background-color: rgba(255, 255, 255, 0.5);
-  color: rgba(71, 71, 71, 0.637);
-  font-size: 20px;
-  border-spacing: 40px;
-  margin-top: 40px;
+  border-collapse: ;
+  background-color: rgba(165, 69, 165, 0.842);
+  color: rgba(51, 50, 50, 0.836);
+  font-size: 30px;  
   text-align: center;
 }
+ 
 td { 
   transition: all .2s ease-in-out; 
 }
@@ -73,31 +79,30 @@ td:hover {
 .tgb td,
 .tgb th {
   border-radius: 15px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 12px 18px;
-  background-color: rgba(255, 255, 255, 0.7);
+  padding: 25px 25px;
+  background-color: rgba(255, 255, 255, 0.671);
+  box-shadow: 0px 0px 6px 3px white;
+  position: relative;
   
 }
 
+
 td:nth-child(7n + 7) {
-  background-color: #EEAECA;
+  background-color: #8fc7d8b0;
 }
 
 .tgb td:hover {
-  background-color: rgba(229, 147, 199, 0.87);
+  background-color: rgba(231, 178, 211, 0.87);
   transition: background-color 0.2s ease;
-  cursor: pointer;
+  cursor:pointer;
   
 }
 
 .middle {
   margin: 0;
+  border-spacing: 15px;
 }
 
-.back {
-  background-color: #EEAECA;
-  background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 64%);
-}
 
 .wrapper {
   display: flex;
@@ -107,12 +112,11 @@ td:nth-child(7n + 7) {
   }
 
 
-  .notesBackground {
-    display: none;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
-    width: 100%;
-    height: 100%;
-    background-color: #3338;
+  .notesBackground ::before {
+  display: none;
+  margin:auto; 
+  border: 0px;
+  padding: 0px;
+  background-color: #3338;
   }
+   
