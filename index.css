@@ -1,4 +1,12 @@
 .headline {
+
+  backdrop-filter: blur(6px) saturate(153%);
+    -webkit-backdrop-filter: blur(6px) saturate(153%);
+    background-color: rgba(212, 145, 202, 0.658);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+
+
   animation: move 3s ease-in-out;
   /* height: 70px; */
    color: #fdfdfe;
@@ -7,13 +15,12 @@
   font-size:50px;
   display: flex;
   margin: 0px;
-  background-color: #eeaecac9;
+  /* background-color: #eeaecac9; */
   padding: 10px 20px;
   border-radius: 12px;
   text-align: center;  
   text-transform:uppercase 
-
-
+  
     
 }
 
@@ -39,8 +46,8 @@
 
 body {
   font-family: "Sour Gummy", sans-serif;
-  /* background: radial-gradient(circle, #eeaecabd 0%, #94bbe9 100%);  */
-  background-color: rgb(0, 0, 0);
+  background: radial-gradient(circle, #eeaecabd 0%, #94bbe9 100%); 
+  /* background-color: rgb(0, 0, 0); */
 }
 
 
@@ -53,18 +60,12 @@ body {
     "wdth" 100;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-    
-
 
 .small {
   font-size: medium;
    color: rgb(68, 66, 66);
-   line-height: em ;
+   /* line-height: em ; */
+   
   
    
 }
@@ -171,3 +172,13 @@ display: grid;
 
   }
 
+.glasseffect{
+     backdrop-filter: blur(6px) saturate(153%);
+    -webkit-backdrop-filter: blur(6px) saturate(153%);
+    background-color: rgba(54, 61, 73, 0.37);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 10px 20px;
+    box-shadow: 0px 0px 6px 3px rgba(112, 107, 107, 0.452);
+
+}
