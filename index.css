@@ -46,7 +46,11 @@
 
 body {
   font-family: "Sour Gummy", sans-serif;
-  background: radial-gradient(circle, #eeaecabd 0%, #94bbe9 100%); 
+  background-size: cover;
+  background-image: url("bilder/DSC00666.JPG") ;
+  
+  
+  /* background: radial-gradient(circle, #eeaecabd 0%, #94bbe9 100%);  */
   /* background-color: rgb(0, 0, 0); */
 }
 
@@ -143,7 +147,7 @@ td:nth-child(7n + 7) {
   }
    
   .containerrow {
-display: grid;
+  display: grid;
 	grid-template-rows: repeat(6, 1fr);
 	grid-template-columns: repeat(6, 1fr);
 	gap: 30px 30px;
