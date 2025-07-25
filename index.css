@@ -41,11 +41,11 @@
 
   66%{
      padding: 30px 60px;
-     transform: rotate(0deg);
+     /* transform: rotate(0deg); */
   }
 
   100% { padding: 10px 20px;
-  transform: rotate(360deg);
+  /* transform: rotate(360deg); */
 }
 }
 
@@ -76,7 +76,27 @@ body {
    
    
 }
+#back{
+    background-color: rgb(107, 11, 99);
+  color: rgba(57, 57, 57, 0.766);
+  position: relative;
+  height: 2vw;
+  width: 2vw;
+  top: 0vw;
+  left: -2vw ;
+  
+}
 
+#forward{
+    background-color: rgb(107, 11, 99);
+  color: rgba(57, 57, 57, 0.766);
+  position: relative;
+  height: 2vw;
+  width: 2vw;
+  top: 0vw;
+  right: -33vw;
+  
+}
 .tablehead {
   background-color: rgb(107, 11, 99);
   color: rgba(57, 57, 57, 0.766);
@@ -164,6 +184,7 @@ td:nth-child(7n + 7) {
  
   .itemhead{
     grid-area: 1/1/2/7;
+    width: auto;
 
   }
   .itemtext{
@@ -172,6 +193,7 @@ td:nth-child(7n + 7) {
   }
   .itemcalender {
     grid-area: 2 / 3 / 5 / 5;
+    width: auto;
 
   }
   .itemlist{
@@ -189,54 +211,6 @@ td:nth-child(7n + 7) {
     box-shadow: 0px 0px 6px 3px rgba(112, 107, 107, 0.452);
 
   }
-  /* @property --y{
-    syntax: "<percentage>";
-    inherits: false;
-    initial-value: -1%;
-  }
-  .snowflake,
-  .snowflake::before,
-  .snowflake::after {
-    position: absolute;
-    inset: 0;
-    content: '';
-    overflow: hidden;
-    pointer-events: none;
-    
-    background-image:radial-gradient(
-    circle at 5% calc(var(--y)*1)
-    #fff 3px, transparent 6px),
-
-    radial-gradient( circle at 65% calc(var(--y)*1.3)
-     #fff 2px, transparent 4px)
-}
-.snowflake{
-  animation: snowflake 20s linear infinite;
-  background-size: 65% 100%;
-}
-.snowflake::before{
-  inset: -4rem 0 0;
-animation: snowflake 27s linear infinite;
-  opacity: 0.7;
-  background-size: 45% 100%;
-}
-.snowflake::after{
-  inset: -8rem 0 0;
-  animation: snowflake 37s linear infinite;
-  opacity: 0.8;
-  background-size: 32% 100%;
-}
-
-
-@keyframes snowflake {
-  0%{
-    --y: -1%
-  }
-  100%{
-    --y: 101%;
-  }
-} */
-
 
 @property --y {
   syntax: "<percentage>";
