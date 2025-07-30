@@ -152,10 +152,11 @@ function istSchaltjahr(jahr) {
 let endeMonat= DaysofMonth[today.getMonth()];
 document.getElementById("lastday").textContent = endeMonat;
 
+// Titel der Seite dynamisch setzen
+ document.title = "Kalender - " + monthNames + " " + Year;
 
 
-
-
+document.getElementById("MonthinHeadline").textContent = "Kalender " + monthNames + " " + Year;
 
 
 
