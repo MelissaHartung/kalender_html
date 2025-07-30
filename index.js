@@ -8,7 +8,7 @@ if (text) {
     text.textContent = formattedDate;
 }
 
-// Wochentag in der Infobox anzeigen
+// Wochentag des gesamten Monats in der Infobox anzeigen
 
 let WeekdayDate= today.getDate();
 let weekdayText = "";
@@ -32,6 +32,7 @@ if (WeekdayDate <= 7) {
 }
 document.getElementById("Weekdaynumber").textContent = weekdayText;
 
+// Wochentage in der Infobox anzeigen
 let weekday = today.getDay();
 let weekdayNames = "";
 if (weekday === 0) {
@@ -59,7 +60,7 @@ else if(weekday===6) {
 document.querySelectorAll(".weekday").forEach(el => el.textContent = weekdayNames);
 
 
-
+// Monat und Jahr in der Infobox anzeigen
 let Month = today.getMonth() 
 let Year = today.getFullYear();
 let monthNames = "";
@@ -101,16 +102,56 @@ else if(Month===11) {
 }
 document.getElementById("MonthYear").textContent = monthNames + " " + Year;
 
-// const Feiertage = [
-//     { date: "01.01", name: "Neujahr" },
-//     { date: "06.01", name: "Heilige Drei Könige" },
-//     { date: "01.05", name: "Tag der Arbeit" },
-//     { date: "03.10", name: "Tag der Deutschen Einheit" },
-//     { date: "25.12", name: "1. Weihnachtstag" },
-//     { date: "26.12", name: "2. Weihnachtstag" }
-// ];  
+const Feiertage = [
+    { date: "01.01.", name: "der Neujahr" },
+    { date: "06.01.", name: "der Heilige Drei Könige" },
+    { date: "01.05.", name: "der Tag der Arbeit" },
+    { date: "03.10.", name: "der Tag der Deutschen Einheit" },
+    { date: "25.12.", name: "der 1. Weihnachtstag" },
+    { date: "26.07.", name: "der 2. Weihnachtstag" }
+];  
 
-// let Vacation = today.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' });
+let Vacation = today.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit' });
+let FeiertageText = Feiertage.find(feiertag => feiertag.date === Vacation);
+
+if (FeiertageText) {
+    document.getElementById("holiday").textContent = FeiertageText.name;
+}
+else (
+    document.getElementById("holiday").textContent = "kein Feiertag"
+);
+
+// Anzahl der Tage im Monat anzeigen
+// Schaltjahrberechnung
+
+let currentYear = today.getFullYear();
+
+function istSchaltjahr(jahr) {
+  if (jahr % 400 === 0) return true;
+  if (jahr % 100 === 0) return false;
+  if (jahr % 4 === 0) return true;
+  return false;
+}
+// Tage im Jahr bis heute berechnen
+// Array mit Tagen pro Monat, unter Berücksichtigung von Schaltjahren
+
+ const DaysofMonth  = [31, istSchaltjahr(currentYear) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+ let TageBisJetzt= 0;
+ for (let monatIndex= 0; monatIndex < today.getMonth(); monatIndex++)  {
+    TageBisJetzt += DaysofMonth[monatIndex];
+ }
+ TageBisJetzt += today.getDate();
+
+
+
+  document.getElementById("DaysOfYear").textContent = TageBisJetzt;
+
+// Tage des Monats anzeigen lassen 
+
+let endeMonat= DaysofMonth[today.getMonth()];
+document.getElementById("lastday").textContent = endeMonat;
+
 
 
 
