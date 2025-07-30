@@ -1,119 +1,119 @@
-<html>
-    <head>
-        
-        <title> Kalender</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Schoolbell&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="style.css">
-    </head>
-  
-  
-    
-    <body>
-      <div class="containerrow">
-      <div class="snowfall"> </div>
-      
-      <div class="itemhead">
-        <!-- <button id="back"><</button>
-        <button id="forward">></button>  -->
-        <h1 class="headline" id="MonthinHeadline">Kalenderblatt Juli</h1>
-      </div>
-      
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Schoolbell&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kalender</title>
+  </head>
+  <body>
+    <!-- For the snow animation in the Background -->
+    <div class="snowfall"></div>
+    <!-- For Centering the Title on Top -->
+    <div class="itemhead">
+      <!-- <button id="back"><</button>
+      <button id="forward">></button>  -->
+      <h1 class="headline">Kalenderblatt Juli</h1>
+    </div>
+    <!-- For ancoring the infotext on the right -->
+    <div class="wrapper">
+      <!-- Info -->
       <div class="itemtext">
-        <p class=" small glasseffect" >
-          Der <span id="todaydate"> 14. Juli </span>  ist ein <span class="weekday"> Montag </span> und der <span id="Weekdaynumber"> zweite</span> <span class="weekday"> Montag </span> im Monat <span id="MonthYear"> Juni 2025</span>. <br>
-          Es handelt sich um den <span id="DaysOfYear"> Zahl</span> Tag des Jahres.<br> Der Monat hat <span id="lastday"> Zahl</span> Tage und ist <span id="holiday">kein Feiertag</span>.
+        <p class="small glasseffect">
+          Der <span id="todaydate"> 14. Juli </span> ist ein
+          <span class="weekday"> Montag </span> und der
+          <span id="Weekdaynumber"> zweite</span>
+          <span class="weekday"> Montag </span> im Monat
+          <span id="MonthYear"> Juni 2025</span>. <br />
+          Es handelt sich um den <span id="DaysOfYear"> Zahl</span> Tag des
+          Jahres.<br />
+          Der Monat hat <span id="lastday"> Zahl</span> Tage und ist
+          <span id="holiday">kein Feiertag</span>.
         </p>
       </div>
-      
-      
-      <div class="itemlist">
-        <div class="wrapper">
-          <div class="kalender ">
-            <h3 class=" small sour-gummy-uniquifier glasseffect ">Historische Ereignisse am 14.07.2025</h3>
-            <ul class="small glasseffect">
-              <li>1997: Deutsch-polnischer Gipfel, blutige Proteste in Nairobi.</li>
-              <li>1998: Bundesverfassungsgericht genehmigt Rechtschreibreform.</li>s
-              <li>2002: Attentat auf Chirac in Paris scheitert.</li>
-              <li>2016: Lkw-Anschlag in Nizza mit 86 Toten.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      <div class="itemcalender">
-        
-        <table class="middle"> 
-          
-          <thead class="tablehead">
-            <tr>
-              <th>Mo</th>
-              <Th>Di</th>
-                <th>Mi</th>
-                <th>Do</th>
-                <th>Fr</th>
-                <th>Sa</th>
-                <th>So</th>
-              </tr>
-            </thead>
-            
-            <tbody class="tgb">
-              <tr>
-                <td></td>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
-              </tr>
-              
-              <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
-                <td>10</td>
-                <td>11</td>
-                <td>12</td>
-                <td>13</td>
-              </tr>
-              <tr>
-                <td>14</td>
-                <td>15</td>
-                <td>16</td>
-                <td>17</td>
-                <td>18</td>
-                <td>19</td>
-                <td>20</td>
-              </tr>
-              <tr>
-                <td>21</td>
-                <td>22</td>
-                <td>23</td>
-                <td>24</td>
-                <td>25</td>
-                <td>26</td>
-                <td>27</td>
-                
-              </tr>
-              <tr>
-                <td>28</td>
-                <td>29</td>
-                <td>30</td>
-                <td>31</td>
-              </tr>
-            </tbody>
-          </div>
-          
-          <!-- <div class="notesBackground">
-            <textarea name="" id="notes"></textarea>
-          </div> -->
-          
-        </table>
-        
-        <script defer src="script.js"></script>
-      </div>
-    </body>
-</html>
 
+      <!-- Historical Info -->
+      <div class="itemlist">
+        <h3 class="small sour-gummy-uniquifier glasseffect">
+          Historische Ereignisse am 14.07.2025
+        </h3>
+        <ul class="small glasseffect">
+          <li>1997: Deutsch-polnischer Gipfel, blutige Proteste in Nairobi.</li>
+          <li>1998: Bundesverfassungsgericht genehmigt Rechtschreibreform.</li>
+          <li>2002: Attentat auf Chirac in Paris scheitert.</li>
+          <li>2016: Lkw-Anschlag in Nizza mit 86 Toten.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="middle">
+      <table class="maintable">
+        <thead class="tablehead">
+          <tr>
+            <th>Mo</th>
+            <th>Di</th>
+            <th>Mi</th>
+            <th>Do</th>
+            <th>Fr</th>
+            <th>Sa</th>
+            <th>So</th>
+          </tr>
+        </thead>
+        <tbody class="tgb">
+          <tr>
+            <td class="outofmonth">30</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+          </tr>
+
+          <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>15</td>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+            <td>24</td>
+            <td>25</td>
+            <td>26</td>
+            <td>27</td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td>29</td>
+            <td>30</td>
+            <td>31</td>
+            <td class="outofmonth">1</td>
+            <td class="outofmonth">2</td>
+            <td class="outofmonth">3</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script defer src="script.js"></script>
+</html>

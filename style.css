@@ -1,102 +1,39 @@
-.headline {
+/* 
+Classes for JS use: */
 
-  backdrop-filter: blur(6px) saturate(153%);
-    -webkit-backdrop-filter: blur(6px) saturate(153%);
-    background-color: rgba(212, 145, 202, 0.658);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-
-  animation: move 3s ease-in-out;
-  
-   color: #fdfdfe;
-  text-shadow: 0px 0px 5px #976383, 0px 0px 10px #a86594, 0px 0px 10px #b393d3,
-    0px 0px 20px #af1d90;
-  font-size:50px;
-  display: flex;
-  margin: 0px;
-  padding: 10px 20px;
-  border-radius: 12px;
-  text-align: center;  
-  text-transform:uppercase 
+/* 
+Invisibility Effect for days that are not in the month */
+.outofmonth {
+  visibility: hidden;
+}
+/* 
+Highlight Effect for today */
+.today {
+  border: 1px solid red;
 }
 
-@keyframes run {
-  0%{
-   transform: translateX(-100%)
+/* 
+Classes for static use: */
 
-  }
-  100%{ right: 100%;
-    }
-}
-
-@keyframes move {
-  0%{
-     padding: 10px 20px;
-  }
-
-  33%{
-     padding: 10px 60px;
-    
-  }
-
-  66%{
-     padding: 30px 60px;
-     /* transform: rotate(0deg); */
-  }
-
-  100% { padding: 10px 20px;
-  /* transform: rotate(360deg); */
-}
-}
+/* 
+Main Components (body,table) */
 
 body {
   font-family: "Sour Gummy", sans-serif;
-  background-size:cover;
-  background-image: url("bilder/DSC00666.JPG")
-  
+  background-image: url("bilder/DSC00666.JPG");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  width: 100vw;
+  justify-content: center;
   /* background: radial-gradient(circle, #eeaecabd 0%, #94bbe9 100%);  */
   /* background-color: rgb(0, 0, 0); */
 }
 
-
-.sour-gummy-uniquifier  {
-  font-family: "Sour Gummy", sans-serif;
-  font-optical-sizing: auto;
-  font-weight:normal;
-  font-style: normal;
-  font-variation-settings: "wdth" 100;
-}
-
-
-.small {
-  font-size: medium;
-   color: rgb(238, 236, 236);
-   animation: run 2s ease-in-out;
-   /* line-height: em ; */
-   
-   
-}
-#back{
-    background-color: rgb(107, 11, 99);
-  color: rgba(57, 57, 57, 0.766);
-  position: relative;
-  height: 2vw;
-  width: 2vw;
-  top: 0vw;
-  left: -2vw ;
-  
-}
-
-#forward{
-    background-color: rgb(107, 11, 99);
-  color: rgba(57, 57, 57, 0.766);
-  position: relative;
-  height: 2vw;
-  width: 2vw;
-  top: 0vw;
-  right: -33vw;
-  
-}
 .tablehead {
   background-color: rgb(107, 11, 99);
   color: rgba(57, 57, 57, 0.766);
@@ -114,18 +51,25 @@ body {
 }
 
 .tgb {
-  border-collapse:collapse;
+  border-collapse: collapse;
   background-color: rgba(165, 69, 165, 0.842);
   color: rgba(51, 50, 50, 0.836);
-  font-size: 30px;  
+  font-size: 30px;
   text-align: center;
 }
- 
-td { 
-  transition: all .2s ease-in-out; 
+
+td {
+  transition: all 0.2s ease-in-out;
+  max-width: 2rem;
+  max-height: 2rem;
+  min-width: 2rem;
+  min-height: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
-td:hover { 
-  transform: scale(1.2); 
+
+td:hover {
+  transform: scale(1.2);
 }
 
 .tgb td,
@@ -135,9 +79,7 @@ td:hover {
   background-color: rgba(255, 255, 255, 0.671);
   box-shadow: 0px 0px 6px 3px white;
   position: relative;
-  
 }
-
 
 td:nth-child(7n + 7) {
   background-color: #8fc7d8b0;
@@ -146,78 +88,72 @@ td:nth-child(7n + 7) {
 .tgb td:hover {
   background-color: rgba(231, 178, 211, 0.87);
   transition: background-color 0.2s ease;
-  cursor:pointer;
-  
+  cursor: pointer;
+}
+
+/* 
+Positioning of the main items
+Wrapper for the left items, itemhead for the title, 
+middle and maintable for the calender */
+
+.maintable {
+  justify-content: center;
+  margin: 0;
+  border-spacing: 15px;
+  max-width: 60vw;
+}
+
+.itemhead {
+  top: 0vh;
+  left: 25vw;
+  width: 50vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+@media (max-width: 1200px) {
+  .wrapper {
+    position: absolute;
+    top: 80vh;
+    left: 20vw;
+    width: 60vw;
+    gap: 5px;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+@media (min-width: 1200px) {
+  .wrapper {
+    position: absolute;
+    top: 30vh;
+    left: 80vw;
+    width: 18vw;
+    gap: 5px;
+    align-items: flex-start;
+    justify-content: center;
+  }
 }
 
 .middle {
-  margin: 0;
-  border-spacing: 15px;
+  top: 10vh;
+  left: 20vw;
+  max-width: 60vw;
+  width: auto;
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
-
-.wrapper {
-  display: flex;
-  gap: 5px;              
-  align-items: flex-start; 
-  justify-content: center;
-  }
-
-
-  .notesBackground ::before {
-  display: none;
-  margin:auto; 
-  border: 0px;
-  padding: 0px;
-  background-color: #3338;
-  }
-   
-  .containerrow {
-  display: grid;
-	grid-template-rows: repeat(6, 1fr);
-	grid-template-columns: repeat(6, 1fr);
-	gap: 30px 30px;
-	width: 100%;
-	height: 100%;
-  justify-items:center;
-  }
- 
-  .itemhead{
-    grid-area: 1/1/2/7;
-    width: auto;
-
-  }
-  .itemtext{
-    grid-area:  2 / 6 / 3 / 7;
-
-  }
-  .itemcalender {
-    grid-area: 2 / 3 / 5 / 5;
-    width: auto;
-
-  }
-  .itemlist{
-    grid-area: 3 / 6 / 6 / 7;
-
-  }
-
-.glasseffect{
-     backdrop-filter: blur(8px) saturate(178%);
-    -webkit-backdrop-filter: blur(8px) saturate(178%);
-    background-color: rgba(13, 15, 18, 0.6);
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.125);
-    padding: 10px 30px;
-    box-shadow: 0px 0px 6px 3px rgba(112, 107, 107, 0.452);
-
-  }
+/* 
+Snow Effects */
 
 @property --y {
   syntax: "<percentage>";
   inherits: false;
   initial-value: -1%;
 }
- 
+
 .snowfall,
 .snowfall::before,
 .snowfall::after {
@@ -226,7 +162,7 @@ td:nth-child(7n + 7) {
   content: "";
   overflow: hidden;
   pointer-events: none;
- 
+
   background-image: radial-gradient(
       circle at 5% calc(var(--y) * 1),
       #fff 3px,
@@ -238,26 +174,26 @@ td:nth-child(7n + 7) {
       transparent 4px
     );
 }
- 
+
 .snowfall {
   animation: snowfall 20s linear infinite;
   background-size: 65% 100%;
 }
- 
+
 .snowfall::before {
   inset: -4rem 0 0;
   opacity: 0.7;
   animation: snowfall 27s linear infinite, wind 27s ease-in-out infinite;
   background-size: 45% 100%;
 }
- 
+
 .snowfall::after {
   inset: -8rem 0 0;
   opacity: 0.8;
   animation: snowfall 37s linear infinite, wind 47s ease-in-out infinite;
   background-size: 32% 100%;
 }
- 
+
 @keyframes snowfall {
   0% {
     --y: -1%;
@@ -266,9 +202,96 @@ td:nth-child(7n + 7) {
     --y: 101%;
   }
 }
- 
+
 @keyframes wind {
   50% {
     translate: 200px;
   }
+}
+
+/* 
+    Title config for Font */
+
+.headline {
+  backdrop-filter: blur(6px) saturate(153%);
+  -webkit-backdrop-filter: blur(6px) saturate(153%);
+  background-color: rgba(212, 145, 202, 0.658);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+
+  animation: move 3s ease-in-out;
+
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #976383, 0px 0px 10px #a86594, 0px 0px 10px #b393d3,
+    0px 0px 20px #af1d90;
+  font-size: 50px;
+  display: flex;
+  margin: 0px;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* 
+    Title config for Animation */
+
+@keyframes run {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    right: 100%;
+  }
+}
+
+@keyframes move {
+  0% {
+    padding: 10px 20px;
+  }
+
+  33% {
+    padding: 10px 60px;
+  }
+
+  66% {
+    padding: 30px 60px;
+    /* transform: rotate(0deg); */
+  }
+
+  100% {
+    padding: 10px 20px;
+    /* transform: rotate(360deg); */
+  }
+}
+
+/* 
+    Glass Effect for Font */
+
+.glasseffect {
+  backdrop-filter: blur(8px) saturate(178%);
+  -webkit-backdrop-filter: blur(8px) saturate(178%);
+  background-color: rgba(13, 15, 18, 0.6);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 10px 30px;
+  box-shadow: 0px 0px 6px 3px rgba(112, 107, 107, 0.452);
+}
+
+/* 
+    sour-gummy Effect for Font */
+.sour-gummy-uniquifier {
+  font-family: "Sour Gummy", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+/* 
+    Small Effect for Font */
+.small {
+  font-size: medium;
+  color: rgb(238, 236, 236);
+  animation: run 2s ease-in-out;
+  /* line-height: em ; */
 }
