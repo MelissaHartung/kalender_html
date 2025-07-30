@@ -116,7 +116,56 @@ let osternStr = ostern.toLocaleDateString("de-DE", {
   day: "2-digit",
   month: "2-digit",
 });
-Feiertage.push({ date: osternStr, name: " Ostersonntag" });
+
+function formatDate(date) {
+  return date.toLocaleDateString("de-DE", {
+    day: "2-digit",
+    month: "2-digit",
+  });
+}
+
+let gründonnerstag = new Date(ostern);
+gründonnerstag.setDate(gründonnerstag.getDate() - 3); // Gründonnerstag ist 3 Tage vor Ostersonntag
+
+let Karsamstag = new Date(ostern);
+Karsamstag.setDate(Karsamstag.getDate() - 1); // K
+
+let Karfreitag = new Date(ostern);
+Karfreitag.setDate(Karfreitag.getDate() - 2);
+
+let Ostermontag = new Date(ostern);
+Ostermontag.setDate(Ostermontag.getDate() + 1);
+
+let christiHimmelfahrt = new Date(ostern);
+christiHimmelfahrt.setDate(christiHimmelfahrt.getDate() + 39);
+
+let Pfingstsonntag = new Date(ostern);
+Pfingstsonntag.setDate(Pfingstsonntag.getDate() + 49);
+
+let Pfingstmontag = new Date(ostern);
+Pfingstmontag.setDate(Pfingstmontag.getDate() + 50);
+
+let Frohnleichnam = new Date(ostern);
+Frohnleichnam.setDate(Frohnleichnam.getDate() + 60);
+
+let gründonnerstagStr = formatDate(gründonnerstag);
+let karfreitagStr = formatDate(Karfreitag);
+let ostermontagStr = formatDate(Ostermontag);
+let christiHimmelfahrtStr = formatDate(christiHimmelfahrt);
+let pfingstsonntagStr = formatDate(Pfingstsonntag);
+let pfingstmontagStr = formatDate(Pfingstmontag);
+let frohnleichnamStr = formatDate(Frohnleichnam);
+
+Feiertage.push(
+  { date: osternStr, name: " Ostersonntag" },
+  { date: gründonnerstagStr, name: "Gründonnerstag" },
+  { date: karfreitagStr, name: "Karfreitag" },
+  { date: ostermontagStr, name: "Ostermontag" },
+  { date: christiHimmelfahrtStr, name: "Christi Himmelfahrt" },
+  { date: pfingstsonntagStr, name: "Pfingstsonntag" },
+  { date: pfingstmontagStr, name: "Pfingstmontag" },
+  { date: frohnleichnamStr, name: "Fronleichnam" }
+); // Ostersonntag hinzufügen im Feiertage-Array
 
 let Vacation = today.toLocaleDateString("de-DE", {
   day: "2-digit",
