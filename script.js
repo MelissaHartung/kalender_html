@@ -110,12 +110,13 @@ function getOstersonntag(jahr) {
   const tag = ((h + l - 7 * m + 114) % 31) + 1;
   return new Date(jahr, monat - 1, tag);
 }
-
+// Aktuelles Jahr verwenden, um Ostersonntag zu berechnen
 let ostern = getOstersonntag(currentYear);
 let osternStr = ostern.toLocaleDateString("de-DE", {
   day: "2-digit",
   month: "2-digit",
 });
+// Funktion zum Formatieren des Datums
 
 function formatDate(date) {
   return date.toLocaleDateString("de-DE", {
@@ -124,11 +125,13 @@ function formatDate(date) {
   });
 }
 
+// Feiertage rund um Ostern berechnen
+
 let gründonnerstag = new Date(ostern);
-gründonnerstag.setDate(gründonnerstag.getDate() - 3); // Gründonnerstag ist 3 Tage vor Ostersonntag
+gründonnerstag.setDate(gründonnerstag.getDate() - 3);
 
 let Karsamstag = new Date(ostern);
-Karsamstag.setDate(Karsamstag.getDate() - 1); // K
+Karsamstag.setDate(Karsamstag.getDate() - 1);
 
 let Karfreitag = new Date(ostern);
 Karfreitag.setDate(Karfreitag.getDate() - 2);
@@ -148,6 +151,7 @@ Pfingstmontag.setDate(Pfingstmontag.getDate() + 50);
 let Frohnleichnam = new Date(ostern);
 Frohnleichnam.setDate(Frohnleichnam.getDate() + 60);
 
+// Feiertage formatieren
 let gründonnerstagStr = formatDate(gründonnerstag);
 let karfreitagStr = formatDate(Karfreitag);
 let ostermontagStr = formatDate(Ostermontag);
@@ -156,6 +160,7 @@ let pfingstsonntagStr = formatDate(Pfingstsonntag);
 let pfingstmontagStr = formatDate(Pfingstmontag);
 let frohnleichnamStr = formatDate(Frohnleichnam);
 
+// Feiertage zum Array hinzufügen
 Feiertage.push(
   { date: osternStr, name: " Ostersonntag" },
   { date: gründonnerstagStr, name: "Gründonnerstag" },
@@ -223,18 +228,3 @@ document.title = "Kalender - " + monthNames + " " + Year;
 
 document.getElementById("MonthinHeadline").textContent =
   "Kalender " + monthNames + " " + Year;
-
-// const listOfTDElements = document.getElementsByTagName("td")
-// const background = document.getElementsByClassName("notesBackground")[0];
-
-// background.addEventListener("click", function() {
-//     background.style.display = "none";
-// });
-
-// Array.from(listOfTDElements).forEach(element => {
-//     element.addEventListener("click", function() {
-//         background.style.display = "block";XMLDocument
-//     });
-// });
-
-// document.createElement("textarea");
