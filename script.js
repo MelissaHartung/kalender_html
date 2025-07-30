@@ -127,25 +127,23 @@ else (
 let currentYear = today.getFullYear();
 
 function istSchaltjahr(jahr) {
-  if (jahr % 400 === 0) return true;
-  if (jahr % 100 === 0) return false;
-  if (jahr % 4 === 0) return true;
-  return false;
+if (jahr % 400 === 0) return true;
+if (jahr % 100 === 0) return false;
+if (jahr % 4 === 0) return true;
+return false;
 }
 // Tage im Jahr bis heute berechnen
 // Array mit Tagen pro Monat, unter Berücksichtigung von Schaltjahren
 
- const DaysofMonth  = [31, istSchaltjahr(currentYear) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const DaysofMonth  = [31, istSchaltjahr(currentYear) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
- let TageBisJetzt= 0;
- for (let monatIndex= 0; monatIndex < today.getMonth(); monatIndex++)  {
-    TageBisJetzt += DaysofMonth[monatIndex];
- }
- TageBisJetzt += today.getDate();
+let TageBisJetzt= 0; //speichert die gesamtanzahl an tagen der vorherigen Monate 
+for (let monatIndex= 0; monatIndex < today.getMonth(); monatIndex++)  { //Zählerschleife die bei 0 beginnt und solange zählt bis monatIndex kleiner als der aktuelle Monat ist also 5 Juni 
+    TageBisJetzt = TageBisJetzt + DaysofMonth[monatIndex]; //Nun wird die Anzahl der Tage des Monats zu der Gesamtanzahl der Tage addiert bis juni 
+}
+TageBisJetzt += today.getDate(); // und die Anzahl der Tage des aktuellen Monats wird hinzugefügt
 
-
-
-  document.getElementById("DaysOfYear").textContent = TageBisJetzt;
+document.getElementById("DaysOfYear").textContent = TageBisJetzt;
 
 // Tage des Monats anzeigen lassen 
 
@@ -153,7 +151,7 @@ let endeMonat= DaysofMonth[today.getMonth()];
 document.getElementById("lastday").textContent = endeMonat;
 
 // Titel der Seite dynamisch setzen
- document.title = "Kalender - " + monthNames + " " + Year;
+document.title = "Kalender - " + monthNames + " " + Year;
 
 
 document.getElementById("MonthinHeadline").textContent = "Kalender " + monthNames + " " + Year;
