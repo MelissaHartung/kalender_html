@@ -233,8 +233,11 @@ document.getElementById("lastday").textContent = endeMonat;
 // Titel der Seite dynamisch setzen
 document.title = "Kalender - " + monthNames + " " + Year;
 
-document.getElementById("Kopfzeile").textContent =
-  "Kalender " + monthNames + " " + Year;
+document.getElementById ("historydate").textContent = formattedDate
+
+
+// document.getElementById("Kopfzeile").textContent =
+//   "Kalender " + monthNames + " " + Year;
 
 // Event-Listener für das Klicken auf das Element mit der ID "clickelement"
 document.getElementById("clickelement").addEventListener("click", (event) => {
