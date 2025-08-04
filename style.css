@@ -37,16 +37,16 @@ body {
   width: 0;
   height: 0;
   /* ERST alle Button-Styles entfernen */
-  border: none;        /* ← Das löst das Problem! */
+  border: none; /* ← Das löst das Problem! */
   background: none;
   padding: 0;
   outline: none;
-  
+
   /* DANN deine Dreieck-Borders setzen */
   border-top: 2.5em solid transparent;
   border-bottom: 2.5em solid transparent;
   border-right: 3.75em solid #e4c5d8;
-  
+
   position: absolute;
   left: 12em;
   top: 1.5em;
@@ -62,16 +62,15 @@ body {
 .forwardbu {
   width: 0;
   height: 0;
-  border: none;        /* Entfernt alle Standard-Button-Borders */
+  border: none; /* Entfernt alle Standard-Button-Borders */
   background: none;
   padding: 0;
   outline: none;
-  
+
   border-top: 2.5em solid transparent;
   border-bottom: 2.5em solid transparent;
-  border-left: 3.75em solid #e4c5d8;   /* Links-Border für Rechts-Dreieck */
-  
-  
+  border-left: 3.75em solid #e4c5d8; /* Links-Border für Rechts-Dreieck */
+
   position: absolute;
   right: 12em;
   top: 1.5em;
@@ -80,10 +79,9 @@ body {
 }
 
 .forwardbu:hover {
-  border-left-color: #d1a3c4;          /* Links-Border-Color ändern */
+  border-left-color: #d1a3c4; /* Links-Border-Color ändern */
   transform: scale(1.1);
 }
-
 
 .tablehead {
   background-color: rgb(107, 11, 99);

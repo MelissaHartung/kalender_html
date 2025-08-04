@@ -1,5 +1,6 @@
 // heutige Datum in der Infobox anzeigen
 let today = new Date();
+
 let options = { day: "numeric", month: "long" };
 let formattedDate = today.toLocaleDateString("de-DE", options);
 
@@ -233,8 +234,7 @@ document.getElementById("lastday").textContent = endeMonat;
 // Titel der Seite dynamisch setzen
 document.title = "Kalender - " + monthNames + " " + Year;
 
-document.getElementById ("historydate").textContent = formattedDate
-
+document.getElementById("historydate").textContent = formattedDate;
 
 // document.getElementById("Kopfzeile").textContent =
 //   "Kalender " + monthNames + " " + Year;

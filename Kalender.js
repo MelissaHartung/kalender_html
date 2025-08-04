@@ -20,3 +20,30 @@ if (shiftedWeekday === 0) {
 } else if (shiftedWeekday === 6) {
   daysFromMonday = "Sonntag";
 }
+
+function generateCalendar(year, month) {
+  const weekdayOfFirstOfMonth = new Date(year, month, 1).getDay();
+  const lastDayOfMonth = new Date(year, month + 1, 1 - 1).getDate();
+  const offset = weekdayOfFirstOfMonth - 1;
+  console.log(lastDayOfMonth);
+
+  const tablebody = document.getElementById("clickelement");
+  for (let week = 0; week < 6; week++) {
+    const tablerow = document.createElement("tr");
+    for (let day = 0; day < 7; day++) {
+      const tablecell = document.createElement("td");
+      const currentDate = week * 7 + day + 1 - offset;
+      tablecell.innerText = currentDate;
+      if (week == 0 && day < weekdayOfFirstOfMonth - 1) {
+        tablecell.innerText = "";
+      }
+      if (currentDate > lastDayOfMonth) {
+        tablecell.innerText = "";
+      }
+      tablerow.appendChild(tablecell);
+    }
+    tablebody.appendChild(tablerow);
+  }
+}
+
+generateCalendar(2025, 7);
