@@ -363,3 +363,10 @@ Snow Effects */
   background: rgb(240, 237, 237);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.767);
 }
+
+.heute {
+  background-color: #ffcc00;
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+}
