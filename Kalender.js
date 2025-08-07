@@ -20,10 +20,15 @@
 //     tablebody.appendChild(tablerow);
 //   }
 // }
-generateCalendar(Year, Month);
 
 let Jahr = new Date().getFullYear();
 let Monat = new Date().getMonth();
+const heute = new Date();
+const heuteJahr = heute.getFullYear();
+const heuteMonat = heute.getMonth();
+const heuteTag = heute.getDate();
+
+generateCalendar(Year, Month);
 
 function generateCalendar(year, month) {
   const firstDay = new Date(year, month, 1);
@@ -47,6 +52,14 @@ function generateCalendar(year, month) {
         tablecell.innerText = "";
       } else {
         tablecell.innerText = currentDate;
+
+        if (
+          year === heuteJahr &&
+          month === heuteMonat &&
+          currentDate === heuteTag
+        ) {
+          tablecell.classList.add("today");
+        }
       }
 
       tablerow.appendChild(tablecell);
@@ -67,8 +80,6 @@ function changeMonth(delta) {
   }
   generateCalendar(Jahr, Monat);
 }
-
-// let heute = generateCalendar(Jahr, Monat);
 
 // function generateCalender(year, month) {
 //   const firstday = new Date(year, month, 1);

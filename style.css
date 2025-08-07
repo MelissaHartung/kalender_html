@@ -7,10 +7,6 @@ Invisibility Effect for days that are not in the month */
   visibility: hidden;
 }
 /* 
-Highlight Effect for today */
-.today {
-  border: 1px solid red;
-}
 
 /* 
 Classes for static use: */
@@ -259,7 +255,7 @@ Snow Effects */
 }
 
 /* 
-    Title config for Font */
+Title config for Font */
 
 .headline {
   backdrop-filter: blur(6px) saturate(153%);
@@ -282,7 +278,7 @@ Snow Effects */
 }
 
 /* 
-    Title config for Animation */
+Title config for Animation */
 
 @keyframes run {
   0% {
@@ -327,7 +323,7 @@ Snow Effects */
 }
 
 /* 
-    sour-gummy Effect for Font */
+sour-gummy Effect for Font */
 .sour-gummy-uniquifier {
   font-family: "Sour Gummy", sans-serif;
   font-optical-sizing: auto;
@@ -364,9 +360,6 @@ Snow Effects */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.767);
 }
 
-.heute {
-  background-color: #ffcc00;
-  font-weight: bold;
-  border-radius: 4px;
-  text-align: center;
+.today {
+  background-color: #ceaace81 !important;
 }
