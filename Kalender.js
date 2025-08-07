@@ -1,26 +1,3 @@
-//   const weekdayOfFirstOfMonth = new Date(year, month, 1).getDay();
-//   const lastDayOfMonth = new Date(year, month + 1, 1 - 1).getDate();
-//   const offset = weekdayOfFirstOfMonth - 1;
-//   const tablebody = document.getElementById("clickelement");
-//   tablebody.innerHTML = "";
-//   for (let week = 0; week < 6; week++) {
-//     const tablerow = document.createElement("tr");
-//     for (let day = 0; day < 7; day++) {
-//       const tablecell = document.createElement("td");
-//       const currentDate = week * 7 + day + 1 - offset;
-//       tablecell.innerText = currentDate;
-//       if (week == 0 && day < weekdayOfFirstOfMonth - 1) {
-//         tablecell.innerText = "";
-//       }
-//       if (currentDate > lastDayOfMonth) {
-//         tablecell.innerText = "";
-//       }
-//       tablerow.appendChild(tablecell);
-//     }
-//     tablebody.appendChild(tablerow);
-//   }
-// }
-
 let Jahr = new Date().getFullYear();
 let Monat = new Date().getMonth();
 const heute = new Date();
@@ -33,26 +10,28 @@ generateCalendar(Year, Month);
 function generateCalendar(year, month) {
   const firstDay = new Date(year, month, 1);
   let weekdayOfFirstOfMonth = firstDay.getDay();
-  // Montag=0 bis Sonntag=6, JavaScript Sonntag=0, deshalb anpassen:
+  const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
+  // Verrücken der Wochentage damit Kalender mit MO=0 beginnt statt Sonntag
   weekdayOfFirstOfMonth = (weekdayOfFirstOfMonth + 6) % 7;
 
-  const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
-
-  const tablebody = document.getElementById("clickelement");
+  const tablebody = document.getElementById("clickelement"); //leeren der tabelle
   tablebody.innerHTML = "";
 
-  let currentDate = 1 - weekdayOfFirstOfMonth;
+  let currentDate = 1 - weekdayOfFirstOfMonth; // Berechnung der Tage die frei bleiben bis zum ersten
 
+  //Schleifi erstellt Tabelle
   for (let week = 0; week < 6; week++) {
     const tablerow = document.createElement("tr");
     for (let day = 0; day < 7; day++) {
       const tablecell = document.createElement("td");
 
       if (currentDate < 1 || currentDate > lastDayOfMonth) {
+        // Bedingung wann Zellen leer bleiben
         tablecell.innerText = "";
       } else {
         tablecell.innerText = currentDate;
 
+        //weitere Bedingung um den heutigen Tag zu suchen und zu markieren
         if (
           year === heuteJahr &&
           month === heuteMonat &&
@@ -62,6 +41,7 @@ function generateCalendar(year, month) {
         }
       }
 
+      //Tablle ihre Kinderelemente zufügen
       tablerow.appendChild(tablecell);
       currentDate++;
     }
@@ -78,30 +58,5 @@ function changeMonth(delta) {
     Monat = 11;
     Jahr--;
   }
-  generateCalendar(Jahr, Monat);
+  generateCalendar(Jahr, Monat); // Aufruf der func. damit der kalender beim vor/zurück neu lädt, damit er unbegrenzt benutzbar ist
 }
-
-// function generateCalender(year, month) {
-//   const firstday = new Date(year, month, 1);
-//   let weekdayofFirstOfMonth = firstday.getDay();
-//   weekdayOfFirstOfMonth = (weekdayOfFisrtOfMonth + 6) % 7;
-//   const lastDayOfMonth = new date(year, month + 1, 0).getDate();
-//   const tablebody = document.getElementById("clickelement");
-
-//   tablebody.innerHTML = "";
-//   let currentDate = 1 - weekdayOfFirstOfMonth; // 1- der wochentag des ersten, damit dieser dann <1 nicht angezeigt wird
-
-//   for (let week = 0; week < 6; week++) {
-//     const tablerow = document.createElement("tr");
-//     for (let day = 0; day < 7; day++) {
-//       const tablecell = document.createElemnt("td");
-
-//       if (currentDate < 1 || currentDate > lastDayOfMonth) {
-//         //ist das currentDate (= Ergebnis von 1- weekdayOfFirstOfMonth)kleiner als 1 und ist CurrentDate größer als der 30/31, dann lass die zeile leer
-//         tablecell.innerHTML = "";
-//       } else {
-//         tablecell.innerText = currentDate;
-//       }
-//     }
-//   }
-// }
