@@ -72,7 +72,7 @@ function updateHeadline() {
 
 updateHeadline(); // Überschrift beim ersten Laden setzen
 
-function changeMonth() {
+function changeMonth(delta) {
   Monat += delta;
   if (Monat > 11) {
     Monat = 0;
