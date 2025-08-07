@@ -10,11 +10,6 @@ if (text) {
 }
 
 // Überschrift des Kalenders dynamisch setzen
-let Headline = today.toLocaleDateString("de-DE", {
-  month: "long",
-  year: "numeric",
-});
-document.getElementById("Kopfzeile").textContent = "Kalenderblatt " + Headline;
 
 // Wochentag des gesamten Monats in der Infobox anzeigen
 

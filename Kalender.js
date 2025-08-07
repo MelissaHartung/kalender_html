@@ -60,3 +60,27 @@ function changeMonth(delta) {
   }
   generateCalendar(Jahr, Monat); // Aufruf der func. damit der kalender beim vor/zurück neu lädt, damit er unbegrenzt benutzbar ist
 }
+function updateHeadline() {
+  let currentDate = new Date(Jahr, Monat);
+  let headline = currentDate.toLocaleDateString("de-DE", {
+    month: "long",
+    year: "numeric",
+  });
+  document.getElementById("Kopfzeile").textContent =
+    "Kalenderblatt " + headline;
+}
+
+updateHeadline(); // Überschrift beim ersten Laden setzen
+
+function changeMonth() {
+  Monat += delta;
+  if (Monat > 11) {
+    Monat = 0;
+    Jahr++;
+  } else if (Monat < 0) {
+    Monat = 11;
+    Jahr--;
+  }
+  generateCalendar(Jahr, Monat);
+  updateHeadline(); // Überschrift aktualisieren
+}
