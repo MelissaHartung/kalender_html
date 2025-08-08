@@ -29,18 +29,28 @@ function generateCalendar(year, month) {
         // Bedingung wann Zellen leer bleiben
         tablecell.innerText = "";
       } else {
-        tablecell.innerText = currentDate;
+         const dateForCell = currentDate; // <-- Speichere das Datum lokal um beim event.listner das datum zu bekommen
+         tablecell.innerText = dateForCell;
+      
 
-        //weitere Bedingung um den heutigen Tag zu suchen und zu markieren
-        if (
+        if (// Highlight den heutigen Tag
           year === heuteJahr &&
           month === heuteMonat &&
           currentDate === heuteTag
         ) {
           tablecell.classList.add("today");
         }
-      }
+        
+        //datum im infotext ändert sich
+        tablecell.addEventListener("click", () => {
+          const clickedDate = new Date (year,month,dateForCell);
+          const formattedClickedDate =clickedDate.toLocaleDateString ("de-DE", options);
+          document.getElementById("todaydate").textContent = formattedClickedDate;
 
+        });
+      }
+       
+ 
       //Tablle ihre Kinderelemente zufügen
       tablerow.appendChild(tablecell);
       currentDate++;
@@ -48,6 +58,7 @@ function generateCalendar(year, month) {
     tablebody.appendChild(tablerow);
   }
 }
+  
 
 function changeMonth(delta) {
   Monat += delta;

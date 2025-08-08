@@ -9,8 +9,6 @@ if (text) {
   text.textContent = formattedDate;
 }
 
-// Überschrift des Kalenders dynamisch setzen
-
 // Wochentag des gesamten Monats in der Infobox anzeigen
 
 let WeekdayDate = today.getDate();
