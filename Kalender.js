@@ -47,6 +47,28 @@ function generateCalendar(year, month) {
           const formattedClickedDate =clickedDate.toLocaleDateString ("de-DE", options);
           document.getElementById("todaydate").textContent = formattedClickedDate;
 
+
+          //Zahl des Wochentages im Monat
+          const dayOfMonth = clickedDate.getDate();
+          let weekdayText = "";
+  if (dayOfMonth <= 7) {
+    weekdayText = "erste";
+  } else if (dayOfMonth <= 14) {
+    weekdayText = "zweite";
+  } else if (dayOfMonth <= 21) {
+    weekdayText = "dritte";
+  } else if (dayOfMonth <= 28) {
+    weekdayText = "vierte";
+  } else {
+    weekdayText = "fünfte";
+  }
+  document.getElementById("Weekdaynumber").textContent = weekdayText;
+
+  //Wochentag des Tages
+    const wochentage = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+  const weekdayName = wochentage[clickedDate.getDay()];
+  document.querySelectorAll(".weekday").forEach(el => el.textContent = weekdayName);
+    
         });
       }
        
