@@ -236,8 +236,6 @@ function istSchaltjahr(jahr) {
   return false;
 }
  
-// Titel der Seite dynamisch setzen
-document.title = "Kalender - " + monthNames + " " + selectedYear;
  
 document.getElementById("historydate").textContent = heuteAsFormattedDate;
  
@@ -303,6 +301,14 @@ function changeMonth(delta) {
   updateHeadline();
 }
  
+function updateTitle() {
+  document.title = "Kalender " + monthNames[selectedMonth] + " " + selectedYear;
+  }
+
+// Beim Laden der Seite den Titel setzen
+updateTitle();
+
+// Die updateHeadline() Funktion erweitern
 function updateHeadline() {
   let currentDate = new Date(selectedYear, selectedMonth);
   let headline = currentDate.toLocaleDateString("de-DE", {
@@ -311,8 +317,32 @@ function updateHeadline() {
   });
   document.getElementById("Kopfzeile").textContent =
     "Kalenderblatt " + headline;
+    
+  updateTitle();
 }
+
+
  
+
+// fetch ('https://history.muffinlabs.com/date')
+// .then (response =>  {
+//   if (!response.ok) {
+//     throw new Error ('Netzwerkanwort war nicht in Ordnung');
+//   }
+
+// return response.json ();
+// })
+// .then(data => { document.getElementById("historischeEreignisse");
+//   ul.innerHTML = "";
+//      data.data.Events.forEach(event => {
+//         const li = document.createElement("li");
+//         li.textContent = `${event.year}: ${event.text}`;
+//         ul.appendChild(li);
+//       });
+//       });
+
+
+
 // Initialize headline
 updateHeadline();
  
