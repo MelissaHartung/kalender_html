@@ -7,7 +7,15 @@ const options = { day: "numeric", month: "long" };
 let heuteAsFormattedDate = heute.toLocaleDateString("de-DE", options);
 let selectedMonth = heute.getMonth();
 let selectedYear = heute.getFullYear();
- 
+
+// Anzahl der Tage im Monat anzeigen
+// Schaltjahrberechnung
+function istSchaltjahr(jahr) {
+  if (jahr % 400 === 0) return true;
+  if (jahr % 100 === 0) return false;
+  if (jahr % 4 === 0) return true;
+  return false;
+}
 // Tage im Jahr bis heute berechnen
 // Array mit Tagen pro Monat, unter Berücksichtigung von Schaltjahren
 const daysOfMonth = [
@@ -24,20 +32,10 @@ const daysOfMonth = [
   30,
   31,
 ];
- 
-//Wochentag des Tages
-const wochentage = [
-  "Sonntag",
-  "Montag",
-  "Dienstag",
-  "Mittwoch",
-  "Donnerstag",
-  "Freitag",
-  "Samstag",
-];
+
 // Feiertage in der Infobox anzeigen
 // Array mit Feiertagen
-const feiertage = [
+const fixedFeiertage = [
   { date: "01.01.", name: "der Neujahr" },
   { date: "06.01.", name: "der Heilige Drei Könige" },
   { date: "01.05.", name: "der Tag der Arbeit" },
@@ -46,7 +44,6 @@ const feiertage = [
   { date: "25.12.", name: "der 1. Weihnachtstag" },
   { date: "26.12.", name: "der 2. Weihnachtstag" },
 ];
- 
 // ✅ Funktion zur Berechnung des Ostersonntags
 function getOstersonntag(jahr) {
   const a = jahr % 19;
@@ -65,68 +62,73 @@ function getOstersonntag(jahr) {
   const tag = ((h + l - 7 * m + 114) % 31) + 1;
   return new Date(jahr, monat - 1, tag);
 }
-// Aktuelles Jahr verwenden, um Ostersonntag zu berechnen
-let ostern = getOstersonntag(selectedYear);
-let osternStr = ostern.toLocaleDateString("de-DE", {
-  day: "2-digit",
-  month: "2-digit",
-});
- 
+
+let feiertage = calcEasternforThisYear(selectedYear);
+
 // Funktion zum Formatieren des Datums
-function formatDate(date) {
+function formatDateToTwoDigit(date) {
   return date.toLocaleDateString("de-DE", {
     day: "2-digit",
     month: "2-digit",
   });
 }
- 
-// Feiertage rund um Ostern berechnen
- 
-let gründonnerstag = new Date(ostern);
-gründonnerstag.setDate(gründonnerstag.getDate() - 3);
- 
-let Karsamstag = new Date(ostern);
-Karsamstag.setDate(Karsamstag.getDate() - 1);
- 
-let Karfreitag = new Date(ostern);
-Karfreitag.setDate(Karfreitag.getDate() - 2);
- 
-let Ostermontag = new Date(ostern);
-Ostermontag.setDate(Ostermontag.getDate() + 1);
- 
-let christiHimmelfahrt = new Date(ostern);
-christiHimmelfahrt.setDate(christiHimmelfahrt.getDate() + 39);
- 
-let Pfingstsonntag = new Date(ostern);
-Pfingstsonntag.setDate(Pfingstsonntag.getDate() + 49);
- 
-let Pfingstmontag = new Date(ostern);
-Pfingstmontag.setDate(Pfingstmontag.getDate() + 50);
- 
-let Frohnleichnam = new Date(ostern);
-Frohnleichnam.setDate(Frohnleichnam.getDate() + 60);
- 
-// Feiertage formatieren
-let gründonnerstagStr = formatDate(gründonnerstag);
-let karfreitagStr = formatDate(Karfreitag);
-let ostermontagStr = formatDate(Ostermontag);
-let christiHimmelfahrtStr = formatDate(christiHimmelfahrt);
-let pfingstsonntagStr = formatDate(Pfingstsonntag);
-let pfingstmontagStr = formatDate(Pfingstmontag);
-let frohnleichnamStr = formatDate(Frohnleichnam);
- 
-// Feiertage zum Array hinzufügen
-feiertage.push(
-  { date: osternStr, name: " Ostersonntag" },
-  { date: gründonnerstagStr, name: "Gründonnerstag" },
-  { date: karfreitagStr, name: "Karfreitag" },
-  { date: ostermontagStr, name: "Ostermontag" },
-  { date: christiHimmelfahrtStr, name: "Christi Himmelfahrt" },
-  { date: pfingstsonntagStr, name: "Pfingstsonntag" },
-  { date: pfingstmontagStr, name: "Pfingstmontag" },
-  { date: frohnleichnamStr, name: "Fronleichnam" }
-); // Ostersonntag hinzufügen im Feiertage-Array
- 
+
+function calcEasternforThisYear(year) {
+  let feiertageThisYear = [...fixedFeiertage];
+  // Aktuelles Jahr verwenden, um Ostersonntag zu berechnen
+  let ostern = getOstersonntag(year);
+  let osternStr = formatDateToTwoDigit(ostern);
+
+  // Feiertage rund um Ostern berechnen
+
+  let gründonnerstag = new Date(ostern);
+  gründonnerstag.setDate(gründonnerstag.getDate() - 3);
+
+  let Karsamstag = new Date(ostern);
+  Karsamstag.setDate(Karsamstag.getDate() - 1);
+
+  let Karfreitag = new Date(ostern);
+  Karfreitag.setDate(Karfreitag.getDate() - 2);
+
+  let Ostermontag = new Date(ostern);
+  Ostermontag.setDate(Ostermontag.getDate() + 1);
+
+  let christiHimmelfahrt = new Date(ostern);
+  christiHimmelfahrt.setDate(christiHimmelfahrt.getDate() + 39);
+
+  let Pfingstsonntag = new Date(ostern);
+  Pfingstsonntag.setDate(Pfingstsonntag.getDate() + 49);
+
+  let Pfingstmontag = new Date(ostern);
+  Pfingstmontag.setDate(Pfingstmontag.getDate() + 50);
+
+  let Frohnleichnam = new Date(ostern);
+  Frohnleichnam.setDate(Frohnleichnam.getDate() + 60);
+
+  // Feiertage formatieren
+  let gründonnerstagStr = formatDateToTwoDigit(gründonnerstag);
+  let karfreitagStr = formatDateToTwoDigit(Karfreitag);
+  let ostermontagStr = formatDateToTwoDigit(Ostermontag);
+  let christiHimmelfahrtStr = formatDateToTwoDigit(christiHimmelfahrt);
+  let pfingstsonntagStr = formatDateToTwoDigit(Pfingstsonntag);
+  let pfingstmontagStr = formatDateToTwoDigit(Pfingstmontag);
+  let frohnleichnamStr = formatDateToTwoDigit(Frohnleichnam);
+
+  // Feiertage zum Array hinzufügen
+  feiertageThisYear.push(
+    { date: osternStr, name: " Ostersonntag" },
+    { date: gründonnerstagStr, name: "Gründonnerstag" },
+    { date: karfreitagStr, name: "Karfreitag" },
+    { date: ostermontagStr, name: "Ostermontag" },
+    { date: christiHimmelfahrtStr, name: "Christi Himmelfahrt" },
+    { date: pfingstsonntagStr, name: "Pfingstsonntag" },
+    { date: pfingstmontagStr, name: "Pfingstmontag" },
+    { date: frohnleichnamStr, name: "Fronleichnam" }
+  ); // Ostersonntag hinzufügen im Feiertage-Array
+
+  return feiertageThisYear;
+}
+
 // Wochentage in der Infobox anzeigen
 const weekdays = [
   "Sonntag",
@@ -139,7 +141,7 @@ const weekdays = [
 ];
 let weekday = heute.getDay();
 let weekdayNames = weekdays[weekday];
- 
+
 const monthNames = [
   "Januar",
   "Februar",
@@ -154,12 +156,9 @@ const monthNames = [
   "November",
   "Dezember",
 ];
- 
+
 function isHoliday(date) {
-  date = date.toLocaleDateString("de-DE", {
-    day: "2-digit",
-    month: "2-digit",
-  });
+  date = formatDateToTwoDigit(date);
   return feiertage.find((feiertag) => feiertag.date === date);
 }
 // format the nesseary ids and classes to fill the html
@@ -172,41 +171,40 @@ function formatSelectedCell(dateForCell) {
   document.getElementById("todaydate").textContent = formattedClickedDate;
   document.getElementById("weekdaynumber").textContent =
     getWeekOfDate(clickedDate);
- 
-  const weekdayName = wochentage[clickedDate.getDay()];
+
+  const weekdayName = weekdays[clickedDate.getDay()];
   document
     .querySelectorAll(".weekday")
     .forEach((el) => (el.textContent = weekdayName));
- 
+
   // Feiertagsprüfung
   document.getElementById("holiday").textContent = isHoliday(clickedDate)
     ? isHoliday(clickedDate).name
     : "kein Feiertag";
- 
+
   let tageBisJetzt = 0; //speichert die gesamtanzahl an tagen der vorherigen Monate
   for (let monatIndex = 0; monatIndex < clickedDate.getMonth(); monatIndex++) {
     //Zählerschleife die bei 0 beginnt und solange zählt bis monatIndex kleiner als der aktuelle Monat ist also 5 Juni
     tageBisJetzt = tageBisJetzt + daysOfMonth[monatIndex]; //Nun wird die Anzahl der Tage des Monats zu der Gesamtanzahl der Tage addiert bis juni
   }
   tageBisJetzt += clickedDate.getDate(); // und die Anzahl der Tage des aktuellen Monats wird hinzugefügt
- 
+
   document.getElementById("daysOfYear").textContent = tageBisJetzt;
- 
+
   document.getElementById("monthYear").textContent =
     monthNames[selectedMonth] + " " + selectedYear;
- 
+
   // Tage des Monats anzeigen lassen
   let endeMonat = daysOfMonth[clickedDate.getMonth()];
   document.getElementById("lastday").textContent = endeMonat;
 }
 formatSelectedCell(heute.getDate());
- 
+
 // Wochentag des gesamten Monats in der Infobox anzeigen
 function getWeekOfDate(date) {
-  console.log("getWeekOfDate is called with " + date);
   let WeekdayDate = date.getDate();
   let weekdayText = "";
- 
+
   if (WeekdayDate <= 7) {
     weekdayText = "erste";
   } else if (WeekdayDate <= 14) {
@@ -218,30 +216,13 @@ function getWeekOfDate(date) {
   } else {
     weekdayText = "fünfte";
   }
-  console.log(
-    "getWeekOfDate has finished with " +
-      date +
-      " and will return " +
-      weekdayText
-  );
-  return weekdayText;
 }
- 
-// Anzahl der Tage im Monat anzeigen
-// Schaltjahrberechnung
-function istSchaltjahr(jahr) {
-  if (jahr % 400 === 0) return true;
-  if (jahr % 100 === 0) return false;
-  if (jahr % 4 === 0) return true;
-  return false;
-}
- 
- 
+
 document.getElementById("historydate").textContent = heuteAsFormattedDate;
- 
+
 // Generate calendar on page load
 generateCalendar(selectedYear, heuteMonat);
- 
+
 // Calendar generation function
 function generateCalendar(year, month) {
   const firstDay = new Date(year, month, 1);
@@ -249,12 +230,12 @@ function generateCalendar(year, month) {
   const lastDayOfMonth = new Date(year, month + 1, 0).getDate();
   // Verrücken der Wochentage damit Kalender mit MO=0 beginnt statt Sonntag
   weekdayOfFirstOfMonth = (weekdayOfFirstOfMonth + 6) % 7;
- 
+
   const tablebody = document.getElementById("clickelement"); //leeren der tabelle
   tablebody.innerHTML = "";
- 
+
   let currentDate = 1 - weekdayOfFirstOfMonth; // Berechnung der Tage die frei bleiben bis zum ersten
- 
+
   //Schleifi erstellt Tabelle
   for (let week = 0; week < 6; week++) {
     const tablerow = document.createElement("tr");
@@ -274,7 +255,7 @@ function generateCalendar(year, month) {
         ) {
           tablecell.classList.add("today");
         }
- 
+
         //datum im infotext ändert sich
         tablecell.addEventListener("click", () =>
           formatSelectedCell(dateForCell)
@@ -287,7 +268,7 @@ function generateCalendar(year, month) {
     tablebody.appendChild(tablerow);
   }
 }
- 
+
 function changeMonth(delta) {
   selectedMonth += delta;
   if (selectedMonth > 11) {
@@ -297,13 +278,16 @@ function changeMonth(delta) {
     selectedMonth = 11;
     selectedYear--;
   }
+
+  feiertage = calcEasternforThisYear(selectedYear);
   generateCalendar(selectedYear, selectedMonth);
   updateHeadline();
+  updateTitle();
 }
- 
+// Titel ändern für das jeweils angezeigte Kalenderblatt
 function updateTitle() {
   document.title = "Kalender " + monthNames[selectedMonth] + " " + selectedYear;
-  }
+}
 
 // Beim Laden der Seite den Titel setzen
 updateTitle();
@@ -317,39 +301,49 @@ function updateHeadline() {
   });
   document.getElementById("Kopfzeile").textContent =
     "Kalenderblatt " + headline;
-    
-  updateTitle();
 }
 
+async function historischeListe() {
+  try {
+    const response = await fetch("https://history.muffinlabs.com/date");
 
- 
+    if (!response.ok) {
+      throw new Error("Netzwerkanwort war nicht in Ordnung");
+    }
 
-// fetch ('https://history.muffinlabs.com/date')
-// .then (response =>  {
-//   if (!response.ok) {
-//     throw new Error ('Netzwerkanwort war nicht in Ordnung');
-//   }
+    const dateoftoday = await response.json();
+    const container = document.getElementById("historischeEreignisse");
 
-// return response.json ();
-// })
-// .then(data => { document.getElementById("historischeEreignisse");
-//   ul.innerHTML = "";
-//      data.data.Events.forEach(event => {
-//         const li = document.createElement("li");
-//         li.textContent = `${event.year}: ${event.text}`;
-//         ul.appendChild(li);
-//       });
-//       });
+    let html = "";
+    // if (dateoftoday.data.Events && dateoftoday.data.Events.length > 0) {
+    //   dateoftoday.data.Events.slice(0, 3).forEach((event) => {
+    //     // Hier einfach den Text direkt hinzufügen, ohne <div>
+    //     html += event.year + ": " + event.text + "\n"; // '\n' für einen Zeilenumbruch im String
+    //   });
 
+    // Nur die ersten 3 Events anzeigen
+    if (dateoftoday.data.Events && dateoftoday.data.Events.length > 0) {
+      dateoftoday.data.Events.slice(0, 3).forEach((event) => {
+        html += `<div>${event.year}: ${event.text}</div>`;
+      });
+    }
 
+    container.innerHTML = html;
+  } catch (error) {
+    console.error("Fehler beim Laden der historischen Ereignisse:", error);
+    document.getElementById(
+      "historischeEreignisse"
+    ).innerHTML = `<div>Fehler beim Laden der Daten: ${error.message}</div>`;
+  }
+}
+
+historischeListe();
 
 // Initialize headline
 updateHeadline();
- 
+
 // Event-Listener für das Klicken auf das Element mit der ID "clickelement"
 // document.getElementById("clickelement").addEventListener("click", (event) => {
 //   const textareaBox = document.getElementById("notiz");
 //   textareaBox.classList.toggle("hidden");
 // });
- 
- 
