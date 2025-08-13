@@ -198,6 +198,8 @@ function formatSelectedCell(dateForCell) {
   // Tage des Monats anzeigen lassen
   let endeMonat = daysOfMonth[clickedDate.getMonth()];
   document.getElementById("lastday").textContent = endeMonat;
+
+  historischeListe(clickedDate.getMonth(), clickedDate.getDate()); //Funktion Api zeigt jedes Ereigniss nach click an für den Tag
 }
 formatSelectedCell(heute.getDate());
 
@@ -304,9 +306,19 @@ function updateHeadline() {
     "Kalenderblatt " + headline;
 }
 
-async function historischeListe() {
+async function historischeListe(monthNum, dayNum) {
+  // Vorbereitung der Werte für die API-URL
+  // Monat: 0-indiziert (+1) und zweistellig formatieren
+  const apiMonth = (monthNum + 1).toString().padStart(2, "0");
+  // Tag: zweistellig formatieren
+  const apiDay = dayNum.toString().padStart(2, "0");
+  const container = document.getElementById("historischeEreignisse");
+  // 1. Ladeanzeige anzeigen
+  container.innerHTML = "<div>Lade historische Ereignisse...</div>"; //Ladebalken sonst sieht doof aus beim warten der super wiki api
   try {
-    const response = await fetch("https://history.muffinlabs.com/date");
+    const response = await fetch(
+      `https://api.wikimedia.org/feed/v1/wikipedia/de/onthisday/all/${apiMonth}/${apiDay}`
+    );
 
     if (!response.ok) {
       throw new Error("Netzwerkanwort war nicht in Ordnung");
@@ -318,8 +330,8 @@ async function historischeListe() {
     let html = "";
 
     // Nur die ersten 3 Events anzeigen
-    if (dateoftoday.data.Events && dateoftoday.data.Events.length > 0) {
-      dateoftoday.data.Events.slice(0, 3).forEach((event) => {
+    if (dateoftoday.events && dateoftoday.events.length > 0) {
+      dateoftoday.events.slice(0, 3).forEach((event) => {
         html += `<div>${event.year}: ${event.text}</div>`;
       });
     }
@@ -333,7 +345,7 @@ async function historischeListe() {
   }
 }
 
-historischeListe();
+historischeListe(heuteMonat, heuteTag); // Für Laden der Seite
 updateHeadline();
 
 // Event-Listener für das Klicken auf das Element mit der ID "clickelement"
