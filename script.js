@@ -171,6 +171,7 @@ function formatSelectedCell(dateForCell) {
   document.getElementById("todaydate").textContent = formattedClickedDate;
   document.getElementById("weekdaynumber").textContent =
     getWeekOfDate(clickedDate);
+  document.getElementById("historydate").textContent = formattedClickedDate;
 
   const weekdayName = weekdays[clickedDate.getDay()];
   document
@@ -315,11 +316,6 @@ async function historischeListe() {
     const container = document.getElementById("historischeEreignisse");
 
     let html = "";
-    // if (dateoftoday.data.Events && dateoftoday.data.Events.length > 0) {
-    //   dateoftoday.data.Events.slice(0, 3).forEach((event) => {
-    //     // Hier einfach den Text direkt hinzufügen, ohne <div>
-    //     html += event.year + ": " + event.text + "\n"; // '\n' für einen Zeilenumbruch im String
-    //   });
 
     // Nur die ersten 3 Events anzeigen
     if (dateoftoday.data.Events && dateoftoday.data.Events.length > 0) {
@@ -338,8 +334,6 @@ async function historischeListe() {
 }
 
 historischeListe();
-
-// Initialize headline
 updateHeadline();
 
 // Event-Listener für das Klicken auf das Element mit der ID "clickelement"
