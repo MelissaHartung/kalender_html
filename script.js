@@ -219,6 +219,7 @@ function getWeekOfDate(date) {
   } else {
     weekdayText = "fünfte";
   }
+  return weekdayText
 }
 
 document.getElementById("historydate").textContent = heuteAsFormattedDate;
@@ -310,11 +311,10 @@ async function historischeListe(monthNum, dayNum) {
   // Vorbereitung der Werte für die API-URL
   // Monat: 0-indiziert (+1) und zweistellig formatieren
   const apiMonth = (monthNum + 1).toString().padStart(2, "0");
-  // Tag: zweistellig formatieren
   const apiDay = dayNum.toString().padStart(2, "0");
   const container = document.getElementById("historischeEreignisse");
-  // 1. Ladeanzeige anzeigen
   container.innerHTML = "<div>Lade historische Ereignisse...</div>"; //Ladebalken sonst sieht doof aus beim warten der super wiki api
+
   try {
     const response = await fetch(
       `https://api.wikimedia.org/feed/v1/wikipedia/de/onthisday/all/${apiMonth}/${apiDay}`
