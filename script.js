@@ -7,7 +7,7 @@ const options = { day: "numeric", month: "long" };
 let heuteAsFormattedDate = heute.toLocaleDateString("de-DE", options);
 let selectedMonth = heute.getMonth();
 let selectedYear = heute.getFullYear();
-
+let selectedDay = heute.getDate();
 // Anzahl der Tage im Monat anzeigen
 // Schaltjahrberechnung
 function istSchaltjahr(jahr) {
@@ -172,6 +172,9 @@ function formatSelectedCell(dateForCell) {
   document.getElementById("weekdaynumber").textContent =
     getWeekOfDate(clickedDate);
   document.getElementById("historydate").textContent = formattedClickedDate;
+  document.getElementById("Kopfzeile").textContent =
+    "  Kalenderblatt vom" + " " + formattedClickedDate + " " + selectedYear;
+  document.title = "Kalender " + formattedClickedDate + " " + selectedYear;
 
   const weekdayName = weekdays[clickedDate.getDay()];
   document
@@ -219,7 +222,7 @@ function getWeekOfDate(date) {
   } else {
     weekdayText = "fünfte";
   }
-  return weekdayText
+  return weekdayText;
 }
 
 document.getElementById("historydate").textContent = heuteAsFormattedDate;
@@ -290,11 +293,16 @@ function changeMonth(delta) {
 }
 // Titel ändern für das jeweils angezeigte Kalenderblatt
 function updateTitle() {
-  document.title = "Kalender " + monthNames[selectedMonth] + " " + selectedYear;
+  document.title =
+    "Kalender " +
+    selectedDay +
+    " " +
+    monthNames[selectedMonth] +
+    " " +
+    selectedYear;
 }
 
 // Beim Laden der Seite den Titel setzen
-updateTitle();
 
 // Die updateHeadline() Funktion erweitern
 function updateHeadline() {
@@ -347,6 +355,7 @@ async function historischeListe(monthNum, dayNum) {
 
 historischeListe(heuteMonat, heuteTag); // Für Laden der Seite
 updateHeadline();
+updateTitle();
 
 // Event-Listener für das Klicken auf das Element mit der ID "clickelement"
 // document.getElementById("clickelement").addEventListener("click", (event) => {
