@@ -163,19 +163,17 @@ middle and maintable for the calender */
     left: 20vw;
     width: 60vw;
     gap: 5px;
-    align-items: flex-start;
-    justify-content: center;
+    box-sizing: border-box;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   .wrapper {
     position: absolute;
     top: 30vh;
     left: 80vw;
     width: 18vw;
     gap: 5px;
-    align-items: flex-start;
-    justify-content: center;
+    box-sizing: border-box;
   }
 }
 
@@ -189,7 +187,60 @@ middle and maintable for the calender */
   display: flex;
   justify-content: center;
 }
+@media (max-width: 768px) {
+  .maintable {
+    width: 90vw;
+    max-width: 90vw;
+    border-spacing: 3px;
+  }
 
+  .tgb td {
+    max-width: 1rem;
+    max-height: 1rem;
+    min-width: 1rem;
+    min-height: 1rem;
+    width: 1rem;
+    height: 1rem;
+    padding: 6px 2px;
+    font-size: 14px;
+  }
+
+  .tablehead th {
+    padding: 8px 4px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  .middle {
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+
+  .maintable {
+    width: 98vw;
+    max-width: 200vw;
+    border-spacing: 1px;
+  }
+
+  .tgb td {
+    max-width: 1.5rem;
+    max-height: 1.5rem;
+    min-width: 1.5rem;
+    min-height: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 3px 1px;
+    font-size: 10px;
+  }
+
+  .tablehead th {
+    padding: 4px 1px;
+    font-size: 12px;
+  }
+}
 /* 
 Snow Effects */
 
