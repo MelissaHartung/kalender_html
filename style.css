@@ -1,3 +1,22 @@
+.headline {
+  backdrop-filter: blur(6px) saturate(153%);
+  -webkit-backdrop-filter: blur(6px) saturate(153%);
+  background-color: rgba(212, 145, 202, 0.658);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+
+  animation: move 3s ease-in-out;
+
+  color: #fdfdfe;
+  text-shadow: 0px 0px 5px #976383, 0px 0px 10px #a86594, 0px 0px 10px #b393d3,
+    0px 0px 20px #af1d90;
+  font-size: 50px;
+  display: flex;
+  margin: 0px;
+  padding: 10px 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
 /* 
 Classes for JS use: */
 
@@ -23,7 +42,7 @@ body {
   background-size: cover;
   height: 100vh;
   margin: 0;
-  overflow: hidden;
+  overflow: auto;
   width: 100vw;
   justify-content: center;
   /* background: radial-gradient(circle, #eeaecabd 0%, #94bbe9 100%);  */
@@ -188,7 +207,9 @@ middle and maintable for the calender */
   }
 }
 
-@media (max-width: 768px) {
+/* Smartphoneansicht */
+
+@media (max-width: 1200px) {
   .maintable {
     width: 90vw;
     max-width: 90vw;
@@ -212,7 +233,7 @@ middle and maintable for the calender */
   }
   .forwardbu {
     position: absolute;
-    left: 1px;
+    left: -2.5em;
     top: 10px;
     border-top: 1.5em solid transparent !important;
     border-bottom: 1.5em solid transparent !important;
@@ -220,11 +241,19 @@ middle and maintable for the calender */
   }
   .backbu {
     position: absolute;
-    right: 1px;
+    right: -2.5em;
     top: 10px;
     border-top: 1.5em solid transparent !important;
     border-bottom: 1.5em solid transparent !important;
     border-left: 2em solid #e4c5d8 !important;
+  }
+  .headline{
+    font-size: 30px;
+  }
+  .wrapper{
+    top: 60vh;
+    left: 20vw;
+    width: 60vw;
   }
 }
 
@@ -295,25 +324,6 @@ Snow Effects */
 /* 
 Title config for Font */
 
-.headline {
-  backdrop-filter: blur(6px) saturate(153%);
-  -webkit-backdrop-filter: blur(6px) saturate(153%);
-  background-color: rgba(212, 145, 202, 0.658);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
-
-  animation: move 3s ease-in-out;
-
-  color: #fdfdfe;
-  text-shadow: 0px 0px 5px #976383, 0px 0px 10px #a86594, 0px 0px 10px #b393d3,
-    0px 0px 20px #af1d90;
-  font-size: 50px;
-  display: flex;
-  margin: 0px;
-  padding: 10px 20px;
-  text-align: center;
-  text-transform: uppercase;
-}
 
 /* 
 Title config for Animation */
